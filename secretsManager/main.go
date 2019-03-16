@@ -13,15 +13,12 @@ import (
 )
 
 func handler() {
-	start := time.Now()
-	secretValue := getSecret()
-	elapsed := time.Since(start)
-	log.Printf("Time elapsed: %s , Secret value: %v (Do not do this in prod)", elapsed, secretValue)
-	start = time.Now()
-	secretValue = getSecret()
-	elapsed = time.Since(start)
-	log.Printf("Time elapsed: %s , Secret value: %v (Do not do this in prod)", elapsed, secretValue)
-
+	for i := 1; i < 50; i++ {
+		start := time.Now()
+		secretValue := getSecret()
+		elapsed := time.Since(start)
+		log.Printf("Time elapsed: %s , Secret value: %v (Do not do this in prod)", elapsed, secretValue)
+	}
 }
 
 func getSecret() string {
